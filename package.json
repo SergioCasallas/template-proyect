@@ -1,0 +1,23 @@
+{
+  "name": "template-proyect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "lint": "npm-run-all lint:api lint:app",
+    "lint:api": "cd api && npm run lint:staged",
+    "lint:app": "cd app && npm run lint:staged",
+    "pre-push": "npm-run-all pre-push:app pre-push:api",
+    "pre-push:app": "cd app && npm run pre-push",
+    "pre-push:api": "cd api && npm run pre-push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^8.0.2",
+    "npm-run-all": "^4.1.5"
+  }
+}
