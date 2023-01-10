@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "workspaces":[
+    "packages/**"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:app": "npm run dev -w app",
+    "dev:api": "npm run dev -w api",
     "prepare": "husky install",
     "lint": "npm-run-all lint:api lint:app",
-    "lint:api": "cd api && npm run lint:staged",
-    "lint:app": "cd app && npm run lint:staged",
+    "lint:api": "npm run lint:staged -w api",
+    "lint:app": "npm run lint:staged -w app",
     "pre-push": "npm-run-all pre-push:app pre-push:api",
-    "pre-push:app": "cd app && npm run pre-push",
-    "pre-push:api": "cd api && npm run pre-push"
+    "pre-push:app": "npm run pre-push -w app",
+    "pre-push:api": "npm run pre-push -w api"
   },
   "keywords": [],
   "author": "",

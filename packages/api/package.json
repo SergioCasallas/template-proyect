@@ -1,8 +1,9 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pre-push": "npm-run-all pre-push:test lint",
     "pre-push:test": "prepush-if-changed",
@@ -18,7 +19,7 @@
       "prettier --write"
     ]
   },
-   "prepush-if-changed": {
+  "prepush-if-changed": {
     "src/**/*.+(js)": "echo 'Files changed on backend. Launching tests.' && npm run test"
   },
   "keywords": [],
@@ -31,6 +32,7 @@
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
     "lint-staged": "^13.0.4",
+    "nodemon": "^2.0.20",
     "prepush-if-changed": "^1.0.8",
     "prettier": "2.8.0"
   }
